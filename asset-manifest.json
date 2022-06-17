@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/cryptoSpy/static/css/main.1431a97f.css",
+    "main.js": "/cryptoSpy/static/js/main.663b4a89.js",
+    "static/js/787.dd2130d0.chunk.js": "/cryptoSpy/static/js/787.dd2130d0.chunk.js",
+    "index.html": "/cryptoSpy/index.html",
+    "main.1431a97f.css.map": "/cryptoSpy/static/css/main.1431a97f.css.map",
+    "main.663b4a89.js.map": "/cryptoSpy/static/js/main.663b4a89.js.map",
+    "787.dd2130d0.chunk.js.map": "/cryptoSpy/static/js/787.dd2130d0.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1431a97f.css",
+    "static/js/main.663b4a89.js"
+  ]
+}
