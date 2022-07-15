@@ -1,9 +1,9 @@
-import React from 'react'
+import React from "react";
 
 function Coin({icon, name, price, priceChange1d}) {
   return (
     <div className='coinData'>
-      <div data-bs-toggle='modal' data-bs-target='#myModal1'>
+      <div data-bs-toggle='modal' data-bs-target={`#${name.replace(/ /ig,'')}`}>
         <img src={icon} alt={icon} draggable={false}/>
         <p><span>Name:</span> {name}</p>
         <p><span>Price:</span> ${price}</p>
@@ -11,7 +11,7 @@ function Coin({icon, name, price, priceChange1d}) {
       </div>
 
       {/* The Modal */}
-      <div className='modal fade' id='myModal1'>
+      <div className='modal fade' id={`${name.replace(/ /ig,'')}`}>
         <div className='modal-dialog'>
           <div className='modal-content'>
             {/* Modal Header */}
@@ -25,7 +25,7 @@ function Coin({icon, name, price, priceChange1d}) {
             </div>
             {/* Modal body */}
             <div className='modal-body'>
-              Will be Available Soon
+              Will be Available Soon ${price}
             </div>
             {/* Modal footer */}
             <div className='modal-footer'>
@@ -37,7 +37,7 @@ function Coin({icon, name, price, priceChange1d}) {
               </button>
               <button
                 type='button'
-                class='btn btn-primary'>
+                className='btn btn-primary'>
                 Visit
               </button>
             </div>
