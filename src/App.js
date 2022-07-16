@@ -10,38 +10,43 @@ function float2int(value) {
 
 function App() {
   const [listOfCoin, setListOfCoins] = useState([]);
-  const [searchWord, setSearchWord] = useState("")
+  const [searchWord, setSearchWord] = useState("");
 
   useEffect(() => {
     Axios.get("https://api.coinstats.app/public/v1/coins?skip=0").then(
       (Response) => {
-        setListOfCoins(Response.data.coins)
+        setListOfCoins(Response.data.coins);
       }
-    )
-  }, [])
+    );
+  }, []);
 
   const filteredCoins = listOfCoin.filter((coin) => {
     return coin.name.toLowerCase().includes(searchWord.toLowerCase());
-  })
+  });
 
   return (
     <div className='noSelect'>
       <Header />
       <div className='sBar'>
-        <input type="text" placeholder='Search for Crypto' onChange={(event) => {
-          setSearchWord(event.target.value);
-        }}
+        <input
+          type='text'
+          placeholder='Search for Crypto'
+          onChange={(event) => {
+            setSearchWord(event.target.value);
+          }}
         />
       </div>
       <div className='cData'>
         {filteredCoins.map((coin) => {
           return (
             <Coin
-              key={coin.name}
+              key={coin.rank}
               name={coin.name}
               icon={coin.icon}
               price={float2int(coin.price)}
               priceChange1d={coin.priceChange1d}
+              priceChange1w={coin.priceChange1w}
+              websiteUrl={coin.websiteUrl}
             />
           );
         })}
