@@ -1,10 +1,10 @@
-import { useEffect, useState } from 'react';
-import './App.css';
-import Header from './components/Header';
-import Axios from 'axios';
-import Coin from './pages/Coin';
+import "./App.css";
+import Axios from "axios";
+import Coin from "./pages/Coin";
+import Header from "./components/Header";
+import { useEffect, useState } from "react";
 
-function float2int (value) {
+function float2int(value) {
   return value | 0;
 }
 
@@ -12,7 +12,7 @@ function App() {
   const [listOfCoin, setListOfCoins] = useState([]);
   const [searchWord, setSearchWord] = useState("")
 
-  useEffect(() =>{
+  useEffect(() => {
     Axios.get("https://api.coinstats.app/public/v1/coins?skip=0").then(
       (Response) => {
         setListOfCoins(Response.data.coins)
@@ -26,7 +26,7 @@ function App() {
 
   return (
     <div className='noSelect'>
-      <Header/>
+      <Header />
       <div className='sBar'>
         <input type="text" placeholder='Search for Crypto' onChange={(event) => {
           setSearchWord(event.target.value);
@@ -36,12 +36,13 @@ function App() {
       <div className='cData'>
         {filteredCoins.map((coin) => {
           return (
-          <Coin 
-            name={coin.name} 
-            icon={coin.icon}
-            price={float2int(coin.price)}
-            priceChange1d={coin.priceChange1d}
-          />
+            <Coin
+              key={coin.name}
+              name={coin.name}
+              icon={coin.icon}
+              price={float2int(coin.price)}
+              priceChange1d={coin.priceChange1d}
+            />
           );
         })}
       </div>
