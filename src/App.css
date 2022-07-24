@@ -1,5 +1,7 @@
 .coinIcon img {
-  margin-bottom: 20px;
+  margin-bottom: 20px;,
+  width: 64px,
+  height: 50px 
 }
 
 .cData {
