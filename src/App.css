@@ -1,49 +1,15 @@
-.App {
-  text-align: center;
+.coinIcon img {
+  margin-bottom: 20px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.cData{
+.cData {
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
+  width: 100%;
 }
 
-.coinData{
+.coinData {
   border: 2px solid var(--accentdim1);
   border-radius: 20px;
   text-align: center;
@@ -52,25 +18,31 @@
   width: 300px;
   transition: 0.3s;
 }
-.coinData:hover{
+
+.coinData:hover {
   box-shadow: var(--shadowsmall);
   transition: 0.3s;
 }
 
-p{
+p {
+  font-size: 25px;
   margin: 0px;
-}
-p span{
-  color: var(--black);
+  margin-top: 10px;
+  color: var(--accent);
 }
 
-.sBar{
+p span {
+  color: var(--black);
+  font-weight: 700;
+}
+
+.sBar {
   margin-top: 85px;
   display: flex;
   justify-content: center;
 }
 
-input{
+input {
   width: 300px;
   border-radius: 10px;
   height: 50px;
@@ -78,7 +50,13 @@ input{
   border: wheat;
   background-color: var(--accentdim2);
 }
-input:focus{
+
+input:focus {
   outline: none;
   border: 2px solid var(--accentdim1);
+}
+
+.modal-body {
+  cursor: default;
+  user-select: none !important;
 }
