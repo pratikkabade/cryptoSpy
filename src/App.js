@@ -1,51 +1,40 @@
-import { useEffect, useState } from 'react';
-import './App.css';
-import Header from './components/Header';
-import Axios from 'axios';
-import Coin from './pages/Coin';
+import "./App.css";
+import Axios from "axios";
+import CoinDetails from "./pages/CoinDetails";
+import Home from "./pages/Home";
+import { useEffect, useState } from "react";
+import { createContext } from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
-function float2int (value) {
-  return value | 0;
-}
-
+export const Globalcontext = createContext(null);
 function App() {
   const [listOfCoin, setListOfCoins] = useState([]);
-  const [searchWord, setSearchWord] = useState("")
+  const [searchWord, setSearchWord] = useState("");
 
-  useEffect(() =>{
+  useEffect(() => {
     Axios.get("https://api.coinstats.app/public/v1/coins?skip=0").then(
       (Response) => {
-        setListOfCoins(Response.data.coins)
+        setListOfCoins(Response.data.coins);
       }
-    )
-  }, [])
+    );
+  }, []);
 
   const filteredCoins = listOfCoin.filter((coin) => {
     return coin.name.toLowerCase().includes(searchWord.toLowerCase());
-  })
+  });
+
+  //this is a context which will be available globally any page or component can consume it
+  const context_to_be_provided = { filteredCoins, setSearchWord, listOfCoin };
 
   return (
-    <div className='noSelect'>
-      <Header/>
-      <div className='sBar'>
-        <input type="text" placeholder='Search for Crypto' onChange={(event) => {
-          setSearchWord(event.target.value);
-        }}
-        />
-      </div>
-      <div className='cData'>
-        {filteredCoins.map((coin) => {
-          return (
-          <Coin 
-            name={coin.name} 
-            icon={coin.icon}
-            price={float2int(coin.price)}
-            priceChange1d={coin.priceChange1d}
-          />
-          );
-        })}
-      </div>
-    </div>
+    <Globalcontext.Provider value={context_to_be_provided}>
+      <Router>
+        <Routes>
+          <Route path='/' element={<Home />}></Route>
+          <Route path='/coin-details/:id' element={<CoinDetails />}></Route>
+        </Routes>
+      </Router>
+    </Globalcontext.Provider>
   );
 }
 
