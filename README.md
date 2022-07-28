@@ -1,4 +1,4 @@
-# cryptoSyp
+# cryptoSpy
 [Live Preview](https://pratikkabade.github.io/cryptoSpy)
 
 # Overview

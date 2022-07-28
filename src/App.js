@@ -1,13 +1,12 @@
 import "./App.css";
 import Axios from "axios";
-import Coin from "./pages/Coin";
-import Header from "./components/Header";
+import CoinDetails from "./pages/CoinDetails";
+import Home from "./pages/Home";
 import { useEffect, useState } from "react";
+import { createContext } from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
-function float2int(value) {
-  return value | 0;
-}
-
+export const Globalcontext = createContext(null);
 function App() {
   const [listOfCoin, setListOfCoins] = useState([]);
   const [searchWord, setSearchWord] = useState("");
@@ -24,34 +23,18 @@ function App() {
     return coin.name.toLowerCase().includes(searchWord.toLowerCase());
   });
 
+  //this is a context which will be available globally any page or component can consume it
+  const context_to_be_provided = { filteredCoins, setSearchWord, listOfCoin };
+
   return (
-    <div className='noSelect'>
-      <Header />
-      <div className='sBar'>
-        <input
-          type='text'
-          placeholder='Search for Crypto'
-          onChange={(event) => {
-            setSearchWord(event.target.value);
-          }}
-        />
-      </div>
-      <div className='cData'>
-        {filteredCoins.map((coin) => {
-          return (
-            <Coin
-              key={coin.rank}
-              name={coin.name}
-              icon={coin.icon}
-              price={float2int(coin.price)}
-              priceChange1d={coin.priceChange1d}
-              priceChange1w={coin.priceChange1w}
-              websiteUrl={coin.websiteUrl}
-            />
-          );
-        })}
-      </div>
-    </div>
+    <Globalcontext.Provider value={context_to_be_provided}>
+      <Router>
+        <Routes>
+          <Route path='/' element={<Home />}></Route>
+          <Route path='/coin-details/:id' element={<CoinDetails />}></Route>
+        </Routes>
+      </Router>
+    </Globalcontext.Provider>
   );
 }
 
