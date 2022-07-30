@@ -1,5 +1,12 @@
 .coinIcon img {
+  width: 100px;
   margin-bottom: 20px;
+}
+
+a {
+  text-decoration: none;
+  margin: 0px;
+  padding: 0px;
 }
 
 .cData {
@@ -54,6 +61,7 @@ input {
 input:focus {
   outline: none;
   border: 2px solid var(--accentdim1);
+  box-shadow: var(--shadowtiny);
 }
 
 .modal-body {

@@ -3,13 +3,15 @@ import React from "react";
 const Header = () => {
   return (
     <div>
-      <nav id='customNav' className='navbar navbar-expand-sm bg-light fixed-top'>
+      <nav
+        id='customNav'
+        className='navbar navbar-expand-sm bg-light fixed-top'>
         <div className='container-fluid justify-content-start'>
           <ul className='navbar-nav'>
             <li className='nav-item'>
               <img
                 id='hrtLogo'
-                src='https://avatars.githubusercontent.com/u/76637730?v=4'
+                src='https://avatars.githubusercontent.com/u/108847584?s=200&v=4'
                 alt='logo'
                 draggable={false}
               />
