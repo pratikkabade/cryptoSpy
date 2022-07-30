@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/cryptoSpy/static/css/main.20ccd64f.css",
-    "main.js": "/cryptoSpy/static/js/main.c0ab8f94.js",
+    "main.css": "/cryptoSpy/static/css/main.b0cf44d9.css",
+    "main.js": "/cryptoSpy/static/js/main.1a09ae1a.js",
     "static/js/787.dd2130d0.chunk.js": "/cryptoSpy/static/js/787.dd2130d0.chunk.js",
     "index.html": "/cryptoSpy/index.html",
-    "main.20ccd64f.css.map": "/cryptoSpy/static/css/main.20ccd64f.css.map",
-    "main.c0ab8f94.js.map": "/cryptoSpy/static/js/main.c0ab8f94.js.map",
+    "main.b0cf44d9.css.map": "/cryptoSpy/static/css/main.b0cf44d9.css.map",
+    "main.1a09ae1a.js.map": "/cryptoSpy/static/js/main.1a09ae1a.js.map",
     "787.dd2130d0.chunk.js.map": "/cryptoSpy/static/js/787.dd2130d0.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.20ccd64f.css",
-    "static/js/main.c0ab8f94.js"
+    "static/css/main.b0cf44d9.css",
+    "static/js/main.1a09ae1a.js"
   ]
 }
